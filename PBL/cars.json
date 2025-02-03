@@ -1,0 +1,13 @@
+{
+    "brand": "Toyota",
+    "model": "RAV4",
+    "year": 2021,
+    "type": "SUV",
+    "fuel_type": "Gasoline",
+    "mileage": "6.1km / 1-litre",
+    "transmission": "Automatic",
+    "price_per_month": 2000,
+    "image_url": "/assets/images/car-1.jpg",
+    "available": true
+  }
+  

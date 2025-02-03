@@ -1,0 +1,10 @@
+{
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "hashed_password",
+    "full_name": "John Doe",
+    "phone": "9322786503",
+    "address": "123 Main St, City",
+    "role": "customer"
+  }
+  

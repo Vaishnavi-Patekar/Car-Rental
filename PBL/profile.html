@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile</h1>
+        <div class="profile-info">
+            <label for="username">Username:</label>
+            <p id="username">VinaRaje123</p>
+            <label for="fullname">Full Name:</label>
+            <p id="fullname">Vina Raje</p>
+            <label for="email">Email:</label>
+            <p id="email">VinaRaje@example.com</p>
+            <label for="phone">Phone:</label>
+            <p id="phone">984762391</p>
+            <label for="address">Address:</label>
+            <p id="address">123 Main Street, Pune</p>
+        </div>
+        <div class="button-container">
+            <button onclick="editProfile()">Edit Profile</button>
+            <button onclick="changePassword()">Change Password</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to redirect to the edit profile page
+        function editProfile() {
+            window.location.href = "edit_profile.html";
+        }
+
+        // Function to handle change password action
+        function changePassword() {
+            // Add your code to change password here
+            alert("Change Password functionality will be implemented soon.");
+        }
+
+        // Function to handle logout action
+        function logout() {
+            // Add your code to logout here
+            alert("Logout functionality will be implemented soon.");
+        }
+    </script>
+</body>
+</html>

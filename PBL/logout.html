@@ -1,0 +1,22 @@
+<!-- Add an id attribute to the logout button -->
+<button id="logout-button">Logout</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Get reference to the logout button
+    const logoutButton = document.getElementById('logout-button');
+
+    // Add event listener for logout button click
+    logoutButton.addEventListener('click', () => {
+        // Perform logout actions
+        logoutUser();
+    });
+});
+
+function logoutUser() {
+    // Perform logout actions here
+    // For example, clear session or token
+    // Redirect to logout endpoint or login page
+    window.location.href = '/logout'; // Replace '/logout' with your logout endpoint or login page URL
+}
+</script>

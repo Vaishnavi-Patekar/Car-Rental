@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental System</title>
+</head>
+<body>
+  <div id="carList"></div>
+
+  <script>
+    // JSON data representing a list of cars
+    const cars = [
+      {
+        "id": 1,
+        "make": "Toyota",
+        "model": "RAV4",
+        "year": 2021,
+        "price": 2000,
+        "available": true
+      },
+      {
+        "id": 2,
+        "make": "BMW",
+        "model": "3 Series",
+        "year": 2019,
+        "price": 1500,
+        "available": false
+      }
+      // Add more cars with "available" property
+    ];
+
+    // Function to generate HTML for each car
+    function generateCarHTML(car) {
+      return `
+        <div>
+          <h2>${car.make} ${car.model}</h2>
+          <p>Year: ${car.year}</p>
+          <p>Price: Rs.${car.price}/month</p>
+          <p>Status: ${car.available ? 'Available' : 'Unavailable'}</p>
+        </div>
+      `;
+    }
+
+    // Function to render cars on the page
+    function renderCars() {
+      const carListElement = document.getElementById('carList');
+      let carHTML = '';
+
+      cars.forEach(car => {
+        carHTML += generateCarHTML(car);
+      });
+
+      carListElement.innerHTML = carHTML;
+    }
+
+    // Call renderCars function to display cars on page load
+    renderCars();
+  </script>
+</body>
+</html>
+

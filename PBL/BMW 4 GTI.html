@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW 4 GTI.html</title>
+    <style>
+        /* Add your CSS styles here */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .form-field {
+            margin-bottom: 20px;
+        }
+        .form-field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-field input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .confirmation {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .confirmation h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="carForm">
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-field">
+                <label for="contact">Contact no.</label>
+                <input type="text" id="contact" placeholder="Enter your contact number">
+            </div>
+            <div class="form-field">
+                <label>Gender</label>
+                <label for="female">Female</label>
+                <input type="checkbox" id="female" name="gender" value="Female">
+                <label for="male">Male</label>
+                <input type="checkbox" id="male" name="gender" value="Male">
+                
+            </div>
+            <div class="form-field">
+                <label for="pickupLocation">Pickup Location</label>
+                <input type="text" id="pickupLocation" placeholder="Enter pickup location">
+            </div>
+            <div class="form-field">
+                <label for="dropLocation">Drop Location</label>
+                <input type="text" id="dropLocation" placeholder="Enter drop location">
+            </div>
+            <div class="form-field">
+                <label for="pickupTime">Pickup Time</label>
+                <input type="text" id="pickupTime" placeholder="Enter pickup time">
+            </div>
+            <div class="form-field">
+                <label for="dropTime">Drop Time</label>
+                <input type="text" id="dropTime" placeholder="Enter drop time">
+            </div>
+            <div class="form-field">
+                <label for="pickupDate">Pickup Date</label>
+                <input type="text" id="pickupDate" placeholder="Enter pickup date">
+            </div>
+            <div class="form-field">
+                <label for="dropDate">Drop Date</label>
+                <input type="text" id="dropDate" placeholder="Enter drop date">
+            </div>
+            <div class="form-field">
+                <label>With/Without driver</label>
+                <label for="withDriver">With</label>
+                <input type="checkbox" id="withDriver" name="driver" value="With">
+                <label for="withoutDriver">Without</label>
+                <input type="checkbox" id="withoutDriver" name="driver" value="Without">
+                
+            </div>
+            <div class="form-field">
+                <input type="submit" id="submitBtn" value="Submit">
+                <button type="button" id="updateBtn" onclick="updateBooking()">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="confirmation" id="confirmation">
+        <!-- Confirmation message will be displayed here -->
+    </div>
+
+    <script>
+        // Define a variable to store booking details
+        let bookingDetails = {};
+
+        // Function to update booking details
+        function updateBooking() {
+            // Populate form fields with existing booking details
+            document.getElementById("name").value = bookingDetails.name || "";
+            document.getElementById("email").value = bookingDetails.email || "";
+            document.getElementById("contact").value = bookingDetails.contact || "";
+            document.getElementById("pickupLocation").value = bookingDetails.pickupLocation || "";
+            document.getElementById("dropLocation").value = bookingDetails.dropLocation || "";
+            document.getElementById("pickupTime").value = bookingDetails.pickupTime || "";
+            document.getElementById("dropTime").value = bookingDetails.dropTime || "";
+            document.getElementById("pickupDate").value = bookingDetails.pickupDate || "";
+            document.getElementById("dropDate").value = bookingDetails.dropDate || "";
+            document.getElementById("withDriver").checked = bookingDetails.driver === "With";
+            document.getElementById("withoutDriver").checked = bookingDetails.driver === "Without";
+
+            // Display a message indicating that the form has been updated
+            document.getElementById("confirmation").innerHTML = "<p>Form updated. Make changes and click 'Submit' to save.</p>";
+        }
+
+        // Function to submit the form
+        document.getElementById("carForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect input values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const contact = document.getElementById("contact").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const pickupLocation = document.getElementById("pickupLocation").value;
+            const dropLocation = document.getElementById("dropLocation").value;
+            const pickupTime = document.getElementById("pickupTime").value;
+            const dropTime = document.getElementById("dropTime").value;
+            const pickupDate = document.getElementById("pickupDate").value;
+            const dropDate = document.getElementById("dropDate").value;
+            const driver = document.querySelector('input[name="driver"]:checked').value;
+
+            // Store booking details
+            bookingDetails = {
+                name: name,
+                email: email,
+                contact: contact,
+                gender: gender,
+                pickupLocation: pickupLocation,
+                dropLocation: dropLocation,
+                pickupTime: pickupTime,
+                dropTime: dropTime,
+                pickupDate: pickupDate,
+                dropDate: dropDate,
+                driver: driver
+            };
+
+            // Display confirmation message
+            const confirmationSlip = `
+                <div class="confirmation">
+                    <h2>Confirmation Slip</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Contact:</strong> ${contact}</p>
+                    <p><strong>Gender:</strong> ${gender}</p>
+                    <p><strong>Pickup Location:</strong> ${pickupLocation}</p>
+                    <p><strong>Drop Location:</strong> ${dropLocation}</p>
+                    <p><strong>Pickup Time:</strong> ${pickupTime}</p>
+                    <p><strong>Drop Time:</strong> ${dropTime}</p>
+                    <p><strong>Pickup Date:</strong> ${pickupDate}</p>
+                    <p><strong>Drop Date:</strong> ${dropDate}</p>
+                    <p><strong>Driver:</strong> ${driver}</p>
+                    <p>Booking confirmed. Thank you!</p>
+                </div>
+            `;
+            document.getElementById("confirmation").innerHTML = confirmationSlip;
+        });
+    </script>
+</body>
+</html>
